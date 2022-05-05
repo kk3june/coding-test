@@ -1,5 +1,5 @@
 const arr = [];
-const selfNum = [];
+let selfNum = "";
 let num = 0;
 
 for (let i = 1; i <= 10000; i++) {
@@ -13,10 +13,8 @@ for (let i = 1; i <= 10000; i++) {
 
 for (let k = 1; k <= 10000; k++) {
   if (arr.indexOf(k) === -1) {
-    selfNum.push(k);
+    selfNum += k + "\n";
   }
 }
 
-for (let m = 0; m < selfNum.length; m++) {
-  console.log(selfNum[m]);
-}
+console.log(selfNum);
