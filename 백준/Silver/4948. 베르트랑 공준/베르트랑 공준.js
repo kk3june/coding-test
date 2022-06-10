@@ -1,28 +1,36 @@
-const input = require('fs').readFileSync('dev/stdin').toString().split('\n');
+const input = require('fs')
+  .readFileSync('/dev/stdin')
+  .toString()
+  .trim()
+  .split('\n');
 
-let TC = 0;
+let answer = '';
 
-function sol() {
-  let answer = '';
-  
-  while (1) {
-    let n = +input[TC++];
-    if (n === 0) break;
+for (let i = 0; i < input.length; i++) {
+  const num = parseInt(input[i]);
+  const doubleNum = num * 2;
+  let count = 0;
 
-    let cnt = 0;
-    for (let i = n + 1; i <= 2 * n; i++) {
-      if (isPrime(i)) cnt++;
+  if (num === 0) {
+    break;
+  }
+  if (num === 1) {
+    count++;
+  }
+
+  for (let j = num + 1; j < doubleNum; j++) {
+    let isPrime = true;
+
+    for (let k = 2; k <= Math.sqrt(j); k++) {
+      if (j % k === 0) {
+        isPrime = false;
+        break;
+      }
     }
-    answer += `${cnt}\n`;
+    if (isPrime) count++;
   }
-  return answer;
+
+  answer += count + '\n';
 }
 
-function isPrime(n) {
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) return false;
-  }
-  return true;
-}
-
-console.log(sol().trim());
+console.log(answer);
