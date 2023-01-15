@@ -3,7 +3,7 @@ const answer = new Set();
 
 for(let i = 0; i < input.length; i++) {
     for(let j = i+1; j <= input.length; j++) {
-        answer.add(input.substring(i, j))
+        answer.add(input.slice(i, j))
     }
 }
 
