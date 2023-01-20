@@ -9,7 +9,6 @@ function solution(scores) {
     for(let score of scores){
         // 내 앞의 동료평가점수가 나보다 높은 사람이 한 사람이라도 있으면 탈락
         // 근무태도 동점자의 경우 동료평가점수 오름차순 정렬 되어있으므로 고려할 필요X
-      
         if(score[1] < maxScore) {
             // 탈락대상
             if(score === wanho) return -1;
